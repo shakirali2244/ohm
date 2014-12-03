@@ -12,9 +12,15 @@ var AuthController = {
      // id: 'geezuhs!!'
    // }
     //  )
-    res.render('auth/home.ejs', {
+    try{
+    res.view('auth/home.ejs', {
         id: req.user.username
     });
+  }
+  catch(e){
+    console.log("not logged in")
+    res.redirect('/login');
+  }
   },
   /**
    * Render the login page
@@ -57,9 +63,9 @@ var AuthController = {
     });
 
     // Render the `auth/login.ext` view
-    res.view({
-      providers : providers
-    , errors    : req.flash('error')
+    res.view('auth/register',{
+      providers : providers, 
+      errors    : req.flash('error')
     });
   },
 
@@ -175,7 +181,7 @@ var AuthController = {
         // Upon successful login, send the user to the homepage were req.user
         // will available.
         //console.log(req.user.username);
-        res.redirect('/home');
+        res.redirect('/');
 
       });
     });

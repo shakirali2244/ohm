@@ -36,14 +36,11 @@ module.exports.routes = {
     view: 'homepage'
   }
   */
-'/': {
-  view: 'auth/index'
-},
+'get /': 'AuthController.home',
 
 'get /login': 'AuthController.login',
 'get /logout': 'AuthController.logout',
 'get /register': 'AuthController.register',
-'get /home': 'AuthController.home',
 
 'post /auth/local': 'AuthController.callback',
 'post /auth/local/:action': 'AuthController.callback',

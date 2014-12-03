@@ -1,7 +1,11 @@
 
-
-<html><body><h1>hello</h1>
-<h1 id=demo></h1>
+<html>
+<body class="black">
+<div class="container-fluid">
+<div class"col-md-12"><h1 class="ohm">hello</h1>
+<h1 class="ohm" id="demo"></h1>
+</div>
+</div>
 <script type="text/javascript">
  var id = <%- JSON.stringify(id) %>;
  document.getElementById("demo").innerHTML = id;

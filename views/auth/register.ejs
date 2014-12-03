@@ -1,12 +1,16 @@
-<% if (errors) {%>
-  <% errors.forEach(function (error) { %>
-    <%= __(error) %>
-  <% }) %>
-<% } %>
-
+<html>
+<body class="black">
+<div class="container">
+<div style="text-align:center;">
+<h1 class="ohm">NEW USER?
 <form role="form" action="/auth/local/register" method="post">
   <input type="text" name="username" placeholder="Username">
   <input type="text" name="email" placeholder="Email">
   <input type="password" name="password" placeholder="Password">
   <button type="submit">Sign up</button>
+  </h1>
+ </div>
+ </div>
 </form>
+</body>
+</html>
