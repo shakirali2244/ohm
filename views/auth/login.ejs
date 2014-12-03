@@ -9,11 +9,4 @@
   <input type="password" name="password" placeholder="Password">
   <button type="submit">Sign in</button>
 </form>
-
-<% if (providers) {%>
-  <h4>You can also use one of these...</h4>
-
-  <% Object.keys(providers).forEach(function (key) { %>
-    <a href="/auth/<%= providers[key].slug %>" role="button"><%= providers[key].name %></a>
-  <% }) %>
-<% } %>
+<h1><a href="/register">NEW USER?</a></h1>
