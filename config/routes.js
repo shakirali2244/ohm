@@ -40,7 +40,8 @@ module.exports.routes = {
 
 'get /login': 'AuthController.login',
 'get /logout': 'AuthController.logout',
-'get /register': 'AuthController.register',
+'get /register': 'AuthController.register', 
+'get /cpanel': 'DashController.cpanel',
 
 'post /auth/local': 'AuthController.callback',
 'post /auth/local/:action': 'AuthController.callback',

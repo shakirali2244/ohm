@@ -13,15 +13,26 @@ var AuthController = {
    // }
     //  )
     try{
+     if (req.user.account == 1){
+      console.log(req.user.account);
+    User.update({group: 'user'}, {group: 'admin'}).exec(function(err) {
+                 console.log("god mode!");
+             });
+  }
     res.view('auth/home.ejs', {
-        id: req.user.username
+        id: req.user.account,
+        group: req.user.group
     });
   }
   catch(e){
+    console.log(e);
     console.log("not logged in")
     res.redirect('/login');
   }
   },
+
+
+
   /**
    * Render the login page
    *
@@ -85,7 +96,7 @@ var AuthController = {
    */
   logout: function (req, res) {
     req.logout();
-    res.redirect('/');
+    res.redirect('/login');
   },
 
   /**

@@ -4,11 +4,14 @@
 <div class="container-fluid">
 <div class"col-md-12"><h1 class="ohm">hello</h1>
 <h1 class="ohm" id="demo"></h1>
+<h1 class="ohm" id="demo2"></h1>
 </div>
 </div>
 <script type="text/javascript">
  var id = <%- JSON.stringify(id) %>;
+ var group = <%- JSON.stringify(group) %>;
  document.getElementById("demo").innerHTML = id;
+ document.getElementById("demo2").innerHTML = group;
 </script>
 </body>
 </html>
