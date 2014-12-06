@@ -18,6 +18,38 @@
  * `node app.js --silent --port=80 --prod`
  */
 
+var app = require('express')();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+
+app.get('/', function(req, res){
+  res.sendfile('socket.html');
+});
+
+io.on('connection', function(socket){
+  console.log('a user connected');
+  socket.on('buttonpress',function(data){
+    console.log(data );
+  });
+});
+
+http.listen(3000, function(){
+  console.log('listening on *:3000');
+});
+/*
+var app = require('express')();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+io.sockets.on('connection', function(socket){
+console.log('a user connected');
+socket.on('buttonpress',function(data){
+  console.log(data);
+});
+});
+console.log('exec');
+*/
+
+
 // Ensure we're in the project directory, so relative paths work as expected
 // no matter where we actually lift from.
 process.chdir(__dirname);
@@ -54,6 +86,8 @@ process.chdir(__dirname);
   }
 
 
+
   // Start server
   sails.lift(rc('sails'));
 })();
+

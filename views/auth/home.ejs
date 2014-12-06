@@ -5,13 +5,23 @@
 <div class"col-md-12"><h1 class="ohm">hello</h1>
 <h1 class="ohm" id="demo"></h1>
 <h1 class="ohm" id="demo2"></h1>
+<button id="thu" class="btn btn-success" onclick="sendit()"><i class="icon-white icon-arrow-up"></i>throttle++</button>
 </div>
 </div>
-<script type="text/javascript">
+
+
+
+
+<script src="http://localhost:3000/socket.io/socket.io.js"></script>
+<script>
+var socket = io.connect('http://localhost:3000');
  var id = <%- JSON.stringify(id) %>;
  var group = <%- JSON.stringify(group) %>;
  document.getElementById("demo").innerHTML = id;
  document.getElementById("demo2").innerHTML = group;
+ function sendit(){
+ socket.emit('buttonpress', 'on');
+}
 </script>
 </body>
 </html>

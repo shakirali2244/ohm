@@ -31,7 +31,9 @@
     "passport-github": "^0.1.5",
     "passport-facebook": "^1.0.3",
     "passport-google-oauth": "^0.1.5",
-    "swig": "^1.4.2"
+    "swig": "^1.4.2",
+    "express": "^4.10.4",
+    "socket.io": "^1.2.1"
   },
   "scripts": {
     "start": "node app.js",
