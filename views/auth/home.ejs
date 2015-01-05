@@ -12,15 +12,19 @@
 
 
 
-<script src="http://localhost:3000/socket.io/socket.io.js"></script>
+<script src="http://localhost:4732/socket.io/socket.io.js"></script>
 <script>
-var socket = io.connect('http://localhost:3000');
+var socket = io.connect("http://localhost:4732");
+            socket.on("helo", function(data) {
+                document.write(data.msg);
+                socket.emit("user", {type:'client'});
+            });
  var id = <%- JSON.stringify(id) %>;
  var group = <%- JSON.stringify(group) %>;
  document.getElementById("demo").innerHTML = id;
  document.getElementById("demo2").innerHTML = group;
  function sendit(){
- socket.emit('buttonpress', 'on');
+ socket.emit("user", {type:'client'});
 }
 </script>
 </body>

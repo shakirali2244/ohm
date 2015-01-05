@@ -20,17 +20,23 @@
 
 var app = require('express')();
 var http = require('http').Server(app);
-var io = require('socket.io')(http);
+var io  = require('socket.io');  
+var server = io.listen(4732);
 
 app.get('/', function(req, res){
   res.sendfile('socket.html');
 });
 
-io.on('connection', function(socket){
-  console.log('a user connected');
-  socket.on('buttonpress',function(data){
-    console.log(data );
-  });
+var macbook_socket = undefined;
+
+server.sockets.on('connection', function(socket) {  
+    socket.emit('helo', {msg: 'welcome'});
+    socket.on('user', function(data) {
+        if (data.type == "client") {
+            //saving socket
+            macbook_socket = socket;
+        }
+    });
 });
 
 http.listen(3000, function(){
