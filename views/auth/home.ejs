@@ -12,9 +12,9 @@
 
 
 
-<script src="http://localhost:3000/socket.io/socket.io.js"></script>
+<script src="http://test.avianrobotics.com:3000/socket.io/socket.io.js"></script>
 <script>
-var socket = io.connect('http://localhost:3000');
+var socket = io.connect('http://test.avianrobotics.com:3000');
  var id = <%- JSON.stringify(id) %>;
  var group = <%- JSON.stringify(group) %>;
  document.getElementById("demo").innerHTML = id;

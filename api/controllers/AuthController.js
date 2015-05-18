@@ -13,12 +13,14 @@ var AuthController = {
    // }
     //  )
     try{
+	console.log("user account number and grp is ",req.user.account,req.user.group);
      if (req.user.account == 1){
-      console.log(req.user.account);
     User.update({group: 'user'}, {group: 'admin'}).exec(function(err) {
                  console.log("god mode!");
              });
-  }
+  }else{
+	req.user.group='user'
+}
     res.view('auth/home.ejs', {
         id: req.user.account,
         group: req.user.group
